@@ -189,7 +189,7 @@ var vesselTypes []string = []string{
 // ParseVDMVDO parses the raw sentence
 func ParseVDMVDO(sentence goNMEA.Sentence) VDMVDO {
 	result, err := nmeaCodec.ParseSentence(sentence.String())
-	if err != nil {
+	if err != nil || result == nil {
 		return VDMVDO{
 			goNMEA.BaseSentence{},
 			goAIS.Header{},
